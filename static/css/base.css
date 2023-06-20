@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    height: 100%;
+    width: 100%;
+}
+.navbar{
+  background: #037feb;
+}
+.menu{
+  font-size: 17px;
+}
+.menu:hover{
+  font-weight: 700;
+}
+.footer {
+  line-height: 24px;
+  font-weight: 400;
+  font-size: 14px;
+  color: #474747;
+  text-align: center;
+}
+.footer h3 {
+  letter-spacing: 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 16px;
+}

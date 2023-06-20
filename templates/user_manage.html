@@ -1,0 +1,90 @@
+{% extends "user_base.html" %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/user_manage.css') }}">
+    <script src="{{ url_for('static', filename = 'js/all_button.js') }}"></script>
+{% endblock %}
+{% block body %}
+    <table class="table table-hover container-fluid col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10">
+        <caption>
+            <h4>工作人员管理表</h4>
+            <form action="/user/user_manage/to-excel/{{ user.id }}" method="post" enctype="multipart/form-data" class="to-excel">
+                <li><input type="file" name="file" value="请选择excel文档"/></li>
+                <li><input type="submit" value="导入" class="btn_search"></li>
+            </form>
+            <button style="margin-left: 1%"><a href="/user/user_manage/get-excel" class="get_excel">导出</a></button>
+
+            <button type="button" class="btn btn-link" id="addBtn">+ 添加工作人员</button>
+        </caption>
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>邮箱</th>
+            <th>角色</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user_user in users %}
+            <tr>
+                <td>{{ user_user.username }}</td>
+                <td>{{ user_user.email }}</td>
+            <td>
+                    {% if user_user.is_admin!=1 %}
+                        工作人员
+                    {% elif user_user.is_admin==1 %}
+                        管理人员
+                    {% endif %}
+                </td>
+                <td>
+                    {% if user_user.is_admin!=1 %}
+                        <button type="button" class="btn btn-info"><a href="/user/edit_user/{{ user_user.id }}">编辑</a>
+                        </button>
+{#                        <button type="button" class="btn btn-info"><a#}
+{#                                href="/user/delete_user/{{ user_user.id }}">删除</a></button>#}
+                    <a href="/user/delete_user/{{ user_user.id }}" onclick="{if(confirm('确定删除该用户吗?')){this.document.formname.submit();return true;}return false;}">
+                    <button class="btn btn-info">删除</button>
+                </a>
+                    {% elif user_user.is_admin==1 %}
+                        <button type="button" class="btn btn-info" disabled>编辑</button>
+                        <button type="button" class="btn btn-info" disabled>删除</button>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <form class="form-horizontal container-fluid col-lg-offset-4 col-lg-4 col-md-offset-4 col-md-4 col-sm-12 col-xs-12"
+          role="form" method="post" id="form">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close">&times;</button>
+        <h3>用户添加</h3>
+        <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" name="name" pattern="^[A-Za-z0-9\u4e00-\u9fa5]{2,20}$"
+                       title="请输入2~20位由大小写字母、数字或者中文组成的用户名">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-2 control-label">邮箱</label>
+            <div class="col-sm-10">
+                <input type="email" class="form-control" id="inputEmail3" name="email"
+                       pattern="^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$"
+                       title="请输入格式如：xx@xx(.xx)的邮箱">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="firstname" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="password" name="password" pattern="^[0-9a-zA-Z]{4,20}$"
+                       title="请输入4-20位由大小写或数字组成的密码">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="">
+                <button type="submit" class="btn btn-default" id="addOk">添加</button>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body,html{
+    height: 100%;
+    width: 100%;
+}
+.navbar{
+  background: #037feb;
+}
+.menu{
+  font-size: 17px;
+}
+.menu2{
+  font-weight: 700;
+}
+.menu:hover{
+  font-weight: 700;
+}
+.table{
+width: 83.4%;
+}
+.btn-link{
+  float: right;
+  margin-right: 3%;
+  font-size: 15px;
+}
+thead{
+  border-top: #9d9d9d 1px solid;
+}
+th,td{
+  text-align: center;
+}
+
+
+
+.form-horizontal{
+    display: none;
+    position: absolute;
+    background: white;
+    box-shadow: -3px 0px 13px -5px #000;
+    margin-top: 10%;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.form-control:invalid{
+    border: red 1px solid;
+}

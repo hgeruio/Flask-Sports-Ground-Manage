@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/response.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/bootstrap.css') }}">
+    <script src="{{ url_for('static', filename = 'js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/bootstrap.js') }}"></script>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+<nav class="col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-12 col-xs-12 navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="color: white">power运动场后台管理系统</a>
+            <a class="menu menu1 navbar-brand" href="user_index" style="color: white">场地管理</a>
+            <a class="menu menu2 navbar-brand" href="user_member" style="color: white">会员管理</a>
+            <a class="menu menu3 navbar-brand" href="user_money" style="color: white">费用管理</a>
+            {% if user.is_admin==1 %}
+                <a class="menu menu4 navbar-brand" href="user_manage" style="color: white">工作人员管理</a>
+            {% endif %}
+            {% block menu %}
+            {% endblock %}
+            <a class="menu menu5 navbar-brand" href="user_password" style="color: white">个人信息</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="menu " style="color: white;pointer-events: none">{{ user.username }}</a></li>
+            <li><a class="menu" href="/" style="color: white">退出</a></li>
+        </ul>
+    </div>
+</nav>
+
+{% block body %}
+{% endblock %}
+</body>
+</html>

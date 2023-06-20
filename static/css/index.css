@@ -1,0 +1,36 @@
+.carousel-control{
+    margin-left: 14px;
+    margin-right: 14px;
+    width: 5%;
+}
+.section-welcome{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+img{
+    width: 100%;
+}
+.list-group-item{
+    border: none;
+    height: 70px;
+    display: grid;
+    align-content: stretch;
+    align-items: end;
+    border-top: grey 1px solid;
+}
+.title{
+    justify-self: center;
+    height: 70px;
+    background: #E8E8E8;
+    color: grey;
+    display: grid;
+    align-content: space-evenly;
+    justify-content: center;
+}
+
+li{
+    list-style: none;
+}
+.about-text{
+    margin-top: 5%;
+}

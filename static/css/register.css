@@ -1,0 +1,19 @@
+form{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.row{
+    padding-top: 2%;
+}
+h3{
+    text-align: center;
+}
+.col-form-label{
+    font-size: 21px;
+    font-weight: 300;
+}
+.btn{
+    margin-top: 2%;
+    font-size: 20px;
+    width: 110px;
+}

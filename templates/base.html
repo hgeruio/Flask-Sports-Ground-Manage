@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/response.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'css/base.css') }}">
+    <script src="{{ url_for('static', filename = 'js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename = 'js/bootstrap.js') }}"></script>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+<nav class="navbar navbar-default col-lg-offset-1 col-lg-10 col-md-offset-1 col-md-10 col-sm-12 col-xs-12" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" style="color: white">power 运动场</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a class="menu" href="register" style="color: white">注册</a></li>
+            <li><a class="menu" href="login" style="color: white">登录</a></li>
+        </ul>
+    </div>
+</nav>
+{% block body%}
+{% endblock %}
+<div class="footer">
+    <div class="footerleft col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="footer-center">
+            <div class="work-time">
+              <h3>工作_时间：</h3>
+              <div class="main-time">
+                <span>周一 ~ 周五： </span>
+                <span>09:00 ------------ 23:00</span>
+              </div>
+              <div class="main-time">
+                <span>周六 ~ 周日： </span>
+                <span>11:00 ------------ 23:00</span>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="footerleft col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="footer-center">
+            <div class="address">
+              <h3>地址：</h3>
+              <div class="main-address">
+                <span>一店地址： </span>
+                <span>山东省xxx</span>
+              </div>
+              <div class="main-address">
+                <span>二店地址： </span>
+                <span>山东省xxx</span>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="footerleft col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="footer-center">
+            <div class="contact">
+              <h3>联系方式：</h3>
+              <div class="contact">
+                <span>一店联系方式： </span>
+                <span>19812345678</span>
+              </div>
+              <div class="main-contact">
+                <span>二店联系方式：</span>
+                <span>15912345678</span>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+</body>
+</html>
